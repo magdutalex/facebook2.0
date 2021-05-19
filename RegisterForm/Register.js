@@ -81,8 +81,9 @@ let showPasswordFunction = () => {
 let saveData = () => {
   let myEmail = document.getElementById("emailInput").value;
   let myPassword = document.getElementById("passwordInput").value;
-  let myUserName = document.getElementById("userNameInput").value;
-  let myName = document.getElementById("firstNameInput").value;
+  let myFirstName = document.getElementById("firstNameInput").value;
+  let myLastName = document.getElementById("lastNameInput").value;
+  let myUsername = document.getElementById("userNameInput").value;
 
   fetch("https://sharo-me.herokuapp.com/api/users/register",{
   method: "post",
@@ -91,16 +92,17 @@ let saveData = () => {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    username: myUserName,
+    firstName: myFirstName,
+    lastName: myLastName,
     password: myPassword,
     email: myEmail,
-    name: myName,
+    username: myUsername,
   }),
 })
  .then((response) => response.text())
  .then((data) => {
     if(data === "User Added!"){
-     //document.querySelector("#regForm").action = "../LoginForm/Login.html";//
+     console.log(data);
      window.location = "../LoginForm/Login.html";
     }
     else{
