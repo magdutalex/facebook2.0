@@ -45,7 +45,7 @@ let tryLogin = function () {
      console.log(data);
      if(data === "User Login Ok!")
      {
-       window.localStorage.setItem("facebookLoggedIn, "true");
+       window.localStorage.setItem("facebookLoggedIn", "true");   // salvam ceva in local storage//
        window.localStorage.setItem("facebookLoggedUsername", myUsername);
        window.location ="../Facebook/facebook2.0.html";
        } else

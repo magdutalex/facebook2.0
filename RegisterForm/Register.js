@@ -107,7 +107,7 @@ let saveData = () => {
     }
     else{
       //console.log("Password already exist!")//
-      document.querySelector("#paragraphInput").innerHTML="The mail already exist"
+      document.querySelector("#paragraphInput").innerHTML="The mail already exist!!!"
     }
   });
 };

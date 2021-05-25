@@ -1,8 +1,9 @@
 let loggedUsername = localStorage.getItem("facebookLoggedUsername");
 
-if(loggedUsername ! = null) {
-  fetch("https://sharo-me.herokuapp.com/api/users/getUser"{
-    method: "post"
+if(loggedUsername != null) 
+{
+  fetch("https://sharo-me.herokuapp.com/api/users/getUser", {
+    method: "post",
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
@@ -16,6 +17,7 @@ if(loggedUsername ! = null) {
       document.querySelector(".user-name").innerText = userData.name;
     });
 }
-else{
-    console.log("Username unavaible")
+else
+{
+     console.log("Username unavaible")
 }
