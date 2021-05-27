@@ -14,7 +14,7 @@ if(loggedUsername != null)
     })
     .then((res) => res.json())
     .then((userData) => {
-      document.querySelector(".user-name").innerText = userData.name;
+      document.querySelector(".user-name").innerText = userData.lastName + " " + userData.firstName;
     });
 }
 else

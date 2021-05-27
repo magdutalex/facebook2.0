@@ -1,9 +1,9 @@
-const langEl = document.querySelector('.langWrap');
-const link = document.querySelector('a');
-const titleEl = document.querySelector('.title');
-const descrEl = document.querySelector('.description');
+let langEl = document.querySelector('.langWrap');
+let link = document.querySelector('a');
+let titleEl = document.querySelector('.title');
+let descrEl = document.querySelector('.description');
 
-letlink.forEach (el => {
+link.forEach(el => {
     el.addEventListener('click', () => {
         langEl.querySelector('.active').classList.remove('active');
         el.classList.add('active');
