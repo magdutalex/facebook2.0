@@ -28,11 +28,15 @@
     margin-top: 30px;
     margin-left: 100px;
 }
-.description{
+.showElement {
+    display: auto;
     margin-left: 20px ;
     font-size: 25px;
     text-indent: 10px;
-}
+  }
+.hiddenElement {
+    display: none;
+  }
 .buttons{
     display: flex;
     justify-content: space-around;
@@ -77,7 +81,8 @@
     height: 100px; 
     margin-top: 20px;
 }
-.text-for-login{
+.showElement{
+   display: auto;
    width: 300px;
    height: 100px;
    text-indent: 8px;

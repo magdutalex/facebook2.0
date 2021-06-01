@@ -15,6 +15,32 @@ if(loggedUsername != null)
     .then((res) => res.json())
     .then((userData) => {
       document.querySelector(".user-name").innerText = userData.lastName + " " + userData.firstName;
+
+      
+      let userDataId = window.localStorage.getItem("mySavedDataId");
+      let authorName = window.localStorage.getItem("authorName");
+      
+  if(userDataId != null && authorName != null)
+  {
+    fetch("https://sharo-me.herokuapp.com/api/users/getUser",{
+      method: "post",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: userDataId,
+        author: authorName,
+      })
+    })
+    .then((res) => res.json())
+    .then((userData) => {
+      document.querySelector(".user-name").innerText = userData.lastName + " " + userData.firstName;
+    })
+  }
+    
+    
+    
     });
 }
 else
