@@ -1,6 +1,7 @@
-postContainer = document.getElementById("div");
-postContainer.classList.add("post-container");
+console.log("Running");
 
+postContainer = document.createElement("div");
+postContainer.classList.add("post-container");
 
 userImgPostWrapper = document.createElement("div");
 userImgPostWrapper.classList.add("user-img-post-wrapper");
@@ -11,29 +12,29 @@ profilePicImage.classList.add("user-img-post");
 
 userImgPostWrapper.appendChild(profilePicImage);
 
-postWrapper = document.getElementById("div");
+postWrapper = document.createElement("div");
 postWrapper.classList.add("post-wrapper");
 
 postDetails = document.createElement("div");
-postDetails = document.classList.add("post-details");
+postDetails.classList.add("post-details");
 
 postDetailsAuthor = document.createElement("p");
 postDetailsAuthor.classList.add("post-details-author");
-postDetailsAuthor.innerText = "Magdut Alex";
+postDetailsAuthor.innerText = "Falk Bogdan";
 
 postDetailsDateLocation = document.createElement("p");
-postDetailsDateLocation.classList.add("post-detalis-date-location");
+postDetailsDateLocation.classList.add("post-details-date-location");
 postDetailsDateLocation.innerText = "26/05/2021 - Romania";
 
 postDetails.appendChild(postDetailsAuthor);
 postDetails.appendChild(postDetailsDateLocation);
 
 postImageWrapper = document.createElement("div");
-postImageWrapper.classList.add("post-img-wrappper");
+postImageWrapper.classList.add("post-img-wrapper");
 
 postImage = document.createElement("img");
 postImage.classList.add("post-img");
-postImageWrapper.src = "./img/img-post-1.jpg";
+postImage.src = "./img/img-post-1.jpg";
 
 postImageWrapper.appendChild(postImage);
 
@@ -42,51 +43,49 @@ postContent.classList.add("post-content");
 
 postText = document.createElement("p");
 postText.classList.add("post-text");
-postText.innerText = "Tanananannanananana";
+postText.innerText =
+  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisiut aliquip ex ea commodo consequat.";
 
-barLikeComment = document.createElement("div");
-barLikeComment.classList.add("bar-like-comment");
+postBtns = document.createElement("div");
+postBtns.classList.add("post-btns");
 
-leftLikeBotton = document.createElement("div");
-leftLikeButton.classList.add("left-like-bottom");
+postLikeBtnWrapper = document.createElement("div");
+postLikeBtnWrapper.classList.add("post-like-btn-wrapper");
 
- // De aici am pierdut sirul //
+postLikeBtn = document.createElement("img");
+postLikeBtn.classList.add("post-like-btn");
+postLikeBtn.classList.add("like");
+postLikeBtn.src = "./img/like-btn.png";
 
-postLikeButton = document.createElement("div");
-postLikeButton.classList.add("img-like");
-
-imgLike = document.createElement("img")
-imgLike.classList.add("like-pic");
-imgLike.src = "./img/like-thumb-black-product.png";
-
-postLikeBtnText = document.createElement("div");
+postLikeBtnText = document.createElement("p");
 postLikeBtnText.innerText = "Like";
 
-postLinkBtnWrapper.appendChild("like-pic");
-postLinkBtnWrapper.appendChild("");
+postLikeBtnWrapper.appendChild(postLikeBtn);
+postLikeBtnWrapper.appendChild(postLikeBtnText);
 
-postButtonSeparator = document.createElement("div");
-postButtonSeparator.classList.add("line-separator");
+postBtnSeparator = document.createElement("div");
+postBtnSeparator.classList.add("post-btn-separator");
+postBtnSeparator.innerText = "|";
 
-barComment = document.createElement("div");
-barComment.classList.add("bar-comment");
+postCommentBtnWrapper = document.createElement("div");
+postCommentBtnWrapper.classList.add("post-comment-btn-wrapper");
 
-rightCommentBottom = document.createElement("img-comment");
-rightCommentBottom.classList.add("comment-pic")
-rightCommentBottom.src = "./img/Chat-2-512.png";
+postCommentBtn = document.createElement("img");
+postCommentBtn.classList.add("post-like-btn");
+postCommentBtn.src = "./img/comment-btn.png";
 
-postCommentPic = document.createElement("p");
-postCommentPic.innerText = "Comment";
+postCommentBtnText = document.createElement("p");
+postCommentBtnText.innerText = "Comment";
 
-postCommentBtnWrapper.apendChild();
-postCommentBtnWrapper.appendChild();
+postCommentBtnWrapper.appendChild(postCommentBtn);
+postCommentBtnWrapper.appendChild(postCommentBtnText);
 
-postBtns.appendChild()
-postBtns.appendChild()
-postBtns.appendChild()
+postBtns.appendChild(postLikeBtnWrapper);
+postBtns.appendChild(postBtnSeparator);
+postBtns.appendChild(postCommentBtnWrapper);
 
 postContent.appendChild(postText);
-postContent.apendChild(postBtns);
+postContent.appendChild(postBtns);
 
 postWrapper.appendChild(postDetails);
 postWrapper.appendChild(postImageWrapper);
@@ -96,3 +95,22 @@ postContainer.appendChild(userImgPostWrapper);
 postContainer.appendChild(postWrapper);
 
 document.querySelector("#posts-wrapper").appendChild(postContainer);
+
+fetch("https://sharo-me.herokuapp.com/api/post/getAll", {
+   method: "get",
+   headers: {
+    Accept: "application/json, text/plain, */*",
+    "Content-Type": "application/json",
+   },
+})
+.then((res) => res.json())
+.then((userData)=> {
+  let i = 1;
+  userData.forEach((item) => {
+   
+  })
+  });
+
+/* .catch((error) => {
+  console.error("Error:", error);
+}); */
